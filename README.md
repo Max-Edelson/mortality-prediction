@@ -15,7 +15,7 @@ Maxim Edelson<sup>1</sup>, Tsung-Ting Kuo<sup>2</sup> <br>
 ---
 
 ## Introduction
-This code uses open-source data (found [here](https://github.com/beoutbreakprepared/nCoV2019)) to model patient mortality based on 55 features + 1 class.
+This code uses open-source data (found [here](https://github.com/beoutbreakprepared/nCoV2019)) to model patient mortality based on 55 features + 1 class. Predicting COVID-19 mortality for patients is critical for early-stage care and intervention. Existing studies mainly built models on datasets with limited geographical range (e.g., from a city) or size (e.g., ≤ 2,000 patients). In this study, we developed COVID-19 mortality prediction models on worldwide, large-scale “sparse” data (i.e., ~100,000 patients) and on a “dense” subset of the data (i.e., ~7000 patients with requirements of containing their age, sex, symptoms, chronic diseases, or optional dates). 
 
 ---
 
