@@ -9,9 +9,9 @@ function sizePrompt {
 
 function temporalPrompt {
         echo "Choose a dataset type below (enter 1, 2, 3, or [q]uit):"
-        echo "1) full dataset"
-        echo "2) pre 2020-05-02 evaluation data"
-        echo "3) post 2020-05-02 evaluation data"
+        echo "1) Training + Calibration + Testing on Full Evaluation Data"
+        echo "2) Training + Calibration + Testing on Evaluation Data w/ confirmation date before 5/2"
+        echo "3) Training + Calibration + Testing on Evaluation Data w/ confirmation date after/on 5/2"
         echo "q) quit"
 }
 

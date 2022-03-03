@@ -301,32 +301,14 @@ public class NB {
 		return new double[]{hStat, pValue};
 	}
 
-	private static void printHLStatistic(double[] hlCStatistic, double[] hlHStatistic, String classifier) {
-		if (hlCStatistic.length != hlHStatistic.length) {
-			System.out.println("Problemo in printHLStatistic: " + hlCStatistic.length + " C entries: " + hlHStatistic.length + " H entries");
-		}
-
+	private static void printHLStatistic(double[] hlHStatistic, String classifier) {
 		if (classifier.equals("isotonic regression")) {
-			System.out.println("Classifier: " + classifier);
-			System.out.println("\tH-L C-Statistics\t\tH-L H-Statistics");
-			System.out.println("\t" + String.format("%.6f", hlCStatistic[0]) + "\t\t\t" + String.format("%.6f", hlHStatistic[0]));
-			System.out.println();
-			System.out.println("p-value\t" + String.format("%.6f", hlCStatistic[1]) + "\t\t\t" + String.format("%.6f", hlHStatistic[1]));
-			System.out.println("====================================================================");
-		} else {
-			System.out.println("====================================================================");
-			System.out.println("Classifier: " + classifier);
-			System.out.println("\tH-L C-Statistics\t\tH-L H-Statistics");
-			System.out.println("\t" + String.format("%.6f", hlCStatistic[0]) + "\t\t\t" + String.format("%.6f", hlHStatistic[0]));
-			System.out.println();
-			System.out.println("p-value\t" + String.format("%.6f", hlCStatistic[1]) + "\t\t\t" + String.format("%.6f", hlHStatistic[1]));
-			System.out.println();
+			System.out.println("p-value:\t\t" + String.format("%.6f", hlHStatistic[1]));
 		}
 	}
 
 	private static void performCalibration(Instances ninetyPercentData, Instances tenPercentData, int numRepetitions, String classifier, NaiveBayes classifierObject, int folds, String size) throws Exception {
 		boolean firstRun = true;
-		double[] AUCResultsBeforeCalibration = new double[numRepetitions];
 		double[] AUCResultsAfterCalibration = new double[numRepetitions];
 		ArrayList<double[]> classifierCStatisticResults = new ArrayList<double[]>();
 		ArrayList<double[]> classifierHStatisticResults = new ArrayList<double[]>();
@@ -372,7 +354,7 @@ public class NB {
 
 			NominalPrediction nominalPrediction;
 
-			// seperate the NaiveBayes prediction scores and the labels
+			// seperate the classifierObject prediction scores and the labels
 			// from the other features and put them in a new Instances
 			// object (calibrationOneLabelData1). This is done by feeding
 			// in the first 5% (trainingData).
@@ -397,7 +379,7 @@ public class NB {
 				}
 			}
 
-			// seperate the NaiveBayes prediction scores and the labels
+			// seperate the classifierObject prediction scores and the labels
 			// from the other features and put them in a new Instances
 			// object (calibrationOneLabelData2). This is done by feeding
 			// in the second 5% (testingData).
@@ -415,7 +397,7 @@ public class NB {
             }
 
 			// Make a new isotonicRegression object and train it on the
-			// NaiveBayes prediction scores and label from the first 5%
+			// classifierObject prediction scores and label from the first 5%
 			// (calibrationOneLabelData1).
 			IsotonicRegression iso = new IsotonicRegression();
 			iso.buildClassifier(calibrationOneLabelData1);
@@ -441,32 +423,16 @@ public class NB {
 			}
 
 			ThresholdCurve tc = new ThresholdCurve();
-			Evaluation calibrationTestingEval = new Evaluation(ninetyPercentData);
-			calibrationTestingEval.evaluateModel(classifierObject, testingData);
-			int classIndex = 0;
-			Instances resultBeforeCalibration = tc.getCurve(calibrationTestingEval.predictions(), classIndex);
-			double AUCBeforeCalibration = Double.parseDouble(Utils.doubleToString(tc.getROCArea(resultBeforeCalibration), 4));
-//			System.out.println("AUC before calibration: " + AUCBeforeCalibration);
-
-			tc = new ThresholdCurve();
 			Instances resultAfterCalibration = tc.getCurve(predictionsArr2);
 			double AUCAfterCalibration = Double.parseDouble(Utils.doubleToString(tc.getROCArea(resultAfterCalibration), 4));
-//			System.out.println("AUC after calibration: " + AUCAfterCalibration);
-			AUCResultsBeforeCalibration[i] = AUCBeforeCalibration;
 			AUCResultsAfterCalibration[i] = AUCAfterCalibration;
 
-			System.out.println("AUC before calibration: " + AUCBeforeCalibration);
-			System.out.println("AUC after calibration: " + AUCAfterCalibration);
+			System.out.println("AUC after calibration:\t" + AUCAfterCalibration);
 
 			int numBucketsForHLStatistic = 10;
-			classifierCStatisticResults.add(hosmer_lemeshow_statistic(calibrationOneLabelData2, "C", numBucketsForHLStatistic, prediction, classifier));
-			isoCStatisticResults.add(hosmer_lemeshow_statistic(isotonicRegressionPredictionValues, "C", numBucketsForHLStatistic, prediction, "isotonic regression"));
-			classifierHStatisticResults.add(hosmer_lemeshow_statistic(calibrationOneLabelData2, "H", numBucketsForHLStatistic, prediction, classifier));
 			isoHStatisticResults.add(hosmer_lemeshow_statistic(isotonicRegressionPredictionValues, "H", numBucketsForHLStatistic, prediction, "isotonic regression"));
 
-			System.out.println();
-			printHLStatistic(classifierCStatisticResults.get(i), classifierHStatisticResults.get(i), classifier);
-			printHLStatistic(isoCStatisticResults.get(i), isoHStatisticResults.get(i), "isotonic regression");
+			printHLStatistic(isoHStatisticResults.get(i), "isotonic regression");
 		}
 	}
 
