@@ -534,7 +534,6 @@ public class LR {
 		// other options
 		int seed  = Integer.parseInt(Utils.getOption("s", args));
 		int folds = Integer.parseInt(Utils.getOption("x", args));
-		int iterations = Integer.parseInt(Utils.getOption("M", args));
 		String size = Utils.getOption("l", args);
 
 		// randomize data

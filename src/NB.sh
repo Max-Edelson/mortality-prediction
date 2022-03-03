@@ -10,8 +10,8 @@ function sizePrompt {
 function temporalPrompt {
         echo "Choose a dataset type below (enter 1, 2, 3, or [q]uit):"
         echo "1) full dataset"
-        echo "2) pre 2020-05-02"
-        echo "3) post 2020-05-02"
+        echo "2) pre 2020-05-02 evaluation data"
+        echo "3) post 2020-05-02 evaluation data"
         echo "q) quit"
 }
 
@@ -62,10 +62,10 @@ case $temporal in
 	temporal="";;
 
 	2)
-	temporal="_pre_temporal";;
+	temporal="_pre_temporal_evaluation";;
 
 	3)
-	temporal="_post_temporal";;
+	temporal="_post_temporal_evaluation";;
 
 	*)
 	echo "Error occured. Exiting."

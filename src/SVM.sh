@@ -10,8 +10,8 @@ function sizePrompt {
 function temporalPrompt {
         echo "Choose a dataset type below (enter 1, 2, 3, or [q]uit):"
         echo "1) full dataset"
-        echo "2) pre 2020-05-02"
-        echo "3) post 2020-05-02"
+        echo "2) pre 2020-05-02 evaluation data"
+        echo "3) post 2020-05-02 evaluation data"
         echo "q) quit"
 }
 
@@ -62,20 +62,20 @@ case $temporal in
 	temporal="";;
 
 	2)
-	temporal="_pre_temporal";;
+	temporal="_pre_temporal_evaluation";;
 
 	3)
-	temporal="_post_temporal";;
+	temporal="_post_temporal_evaluation";;
 
 	*)
 	echo "Error occured. Exiting."
 	exit;;
 esac
 
-if javac -d ../bin -cp ":../lib/weka.jar:../lib/isotonicRegression-1.0.2.jar:../lib/commons-math3-3.6.1/*:../lib/LibLINEAR-1.9.7.jar:../lib/liblinear-1.92.jar" SVM.java
+if javac -d ../bin -cp ":../lib/weka.jar:../lib/isotonicRegression.jar:../lib/commons-math3-3.6.1/*:../lib/LibLINEAR-1.9.7.jar:../lib/liblinear-1.92.jar" SVM.java
 then
 	cd ../bin
-	java -cp ":../lib/weka.jar:../lib/isotonicRegression-1.0.2.jar:../lib/commons-math3-3.6.1/*:../lib/LibLINEAR-1.9.7.jar:../lib/liblinear-1.92.jar" SVM -t ../data/"$size$temporal".csv -c first -x 10 -s 1 -l "$size"
+	java -cp ":../lib/weka.jar:../lib/isotonicRegression.jar:../lib/commons-math3-3.6.1/*:../lib/LibLINEAR-1.9.7.jar:../lib/liblinear-1.92.jar" SVM -t ../data/"$size$temporal".csv -c first -x 10 -s 1 -l "$size"
 	cd ../src
 else
 	exit
