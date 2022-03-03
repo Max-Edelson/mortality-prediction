@@ -14,7 +14,7 @@ This code uses open-source data (found [here](https://github.com/beoutbreakprepa
 
 ## Prerequisites
   - MacOS or a Linux system
-  - Java 8 (Other version will not work)
+  - Java 8 (Other versions will not work)
     - Instructions for the download can be found [here](https://stackoverflow.com/questions/24342886/how-to-install-java-8-on-mac).
     - If running an older version of java, instructions to switch to java 8 can be found [here](https://stackoverflow.com/questions/21964709/how-to-set-or-change-the-default-java-jdk-version-on-macos).
 
