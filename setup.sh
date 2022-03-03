@@ -34,3 +34,7 @@ rm -rf weka-3-9-6 commons-math3-3.6.1-bin.tar
 mv isotonicRegression-1.0.2.jar isotonicRegression.jar
 
 cd ..
+
+if [[ ! -d bin ]]; then
+    mkdir bin
+fi

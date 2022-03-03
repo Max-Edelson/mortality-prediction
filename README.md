@@ -22,13 +22,13 @@ This code uses open-source data (found [here](https://github.com/beoutbreakprepa
 
 ## Instructions For First-Time Setup
 1. Cloan repository
-2. Download commons-math3-3.6.1-bin.tar.gz from https://commons.apache.org/proper/commons-math/download_math.cgi. Do not download the .zip (it will not work).
+2. Download the **binary** commons-math3-3.6.1-bin.tar.gz from https://commons.apache.org/proper/commons-math/download_math.cgi. Do not download the .zip (it will not work) or the source files.
 3. Download LibLINEAR's dependencies: https://mvnrepository.com/artifact/nz.ac.waikato.cms.weka/LibLINEAR/1.9.7, http://www.java2s.com/Code/Jar/l/Downloadliblinear192jar.htm.
 4. Download Weka's dependencies: https://prdownloads.sourceforge.net/weka/weka-3-9-6.zip.
 5. Download Isotonic Regression's dependencies (1.0.2.jar): https://jarcasting.com/artifacts/nz.ac.waikato.cms.weka/isotonicRegression/.
 6. Place all the downloaded and unzipped directories/jar files into the `/lib` directory (do **NOT** extract the .jar files out).
 7. Run `bash setup.sh` to fix dependencies
-8. In a shell, `cd` into the `\src` directory.
+8. In a shell, `cd` into the `src` directory.
 9. Choose a classifier to run
    1. AdaBoost (AB.sh)
    2. Logistic Regression (LR.sh)
