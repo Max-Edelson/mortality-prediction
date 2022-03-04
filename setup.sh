@@ -29,7 +29,6 @@ if [[ ! -f "liblinear-1.92.jar" ]]; then
 fi
 
 unzip "*.zip"
-
 mv weka-3-9-6/weka.jar .
 gunzip -c *.tar.gz | tar xopf - > /dev/null 2>&1
 tar -xf *.tar > /dev/null 2>&1

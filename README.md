@@ -17,11 +17,16 @@ This code uses open-source data (found [here](https://github.com/beoutbreakprepa
   - Java 8 (Other versions will not work)
     - Instructions for the download can be found [here](https://stackoverflow.com/questions/24342886/how-to-install-java-8-on-mac).
     - If running an older version of java, instructions to switch to java 8 can be found [here](https://stackoverflow.com/questions/21964709/how-to-set-or-change-the-default-java-jdk-version-on-macos).
+  - wget
+    - For MacOS (may require **sudo** priviledges)
+      - `brew install wget`
+    - For Linux machines
+      - `sudo apt install wget`
 
 ---
 
 ## Instructions For First-Time Setup
-1. Cloan the repository onto your local machine.
+1. Clone the repository onto your local machine.
    1. Ex. `git clone <GitHub-repository-release-link>`
 2. Run `bash setup.sh` to download all required dependencies.
 3. In a shell, `cd` into the `src` directory.

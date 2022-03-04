@@ -479,7 +479,8 @@ public class RF {
 		long startTimeOverall = System.nanoTime();
 
 		// loads data and set class index
-		Instances data = DataSource.read(Utils.getOption("t", args));
+		String dataSource = Utils.getOption("t", args);
+		Instances data = DataSource.read(dataSource);
 		String clsIndex = Utils.getOption("c", args);
 		if (clsIndex.length() == 0)
 			clsIndex = "last";
