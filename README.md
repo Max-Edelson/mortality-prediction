@@ -8,7 +8,7 @@ Maxim Edelson<sup>1</sup>, Tsung-Ting Kuo<sup>2</sup> <br>
 ---
 
 ## Introduction
-This code uses open-source data (found [here](https://github.com/beoutbreakprepared/nCoV2019)) to model patient mortality based on 55 features + 1 class.
+This code uses publicly-available data (found [here](https://github.com/beoutbreakprepared/nCoV2019)) to model patient mortality based on 55 features + 1 class.
 
 ---
 
@@ -26,8 +26,10 @@ This code uses open-source data (found [here](https://github.com/beoutbreakprepa
 ---
 
 ## Instructions For First-Time Setup
-1. Clone the repository onto your local machine.
-   1. Ex. `git clone <GitHub-repository-release-link>`
+1. Clone the repository onto your local machine using one of the following methods:
+   -  git via `git clone <GitHub-repository-release-link>`
+   - wget via `wget https://github.com/Max-Edelson/mortality-prediction/archive/refs/heads/main.zip`
+   - Manually download the zip straight from the github using [this link](ttps://github.com/Max-Edelson/mortality-prediction). 
 2. Run `bash setup.sh` to download all required dependencies.
 3. In a shell, `cd` into the `src` directory.
 4. Choose a classifier to run
@@ -38,7 +40,7 @@ This code uses open-source data (found [here](https://github.com/beoutbreakprepa
    5. Support Vector Machine (SVM.sh)
    6. Random Forest (RF.sh)
 5.  Run the classifier with `bash <classifier-abbreviation>.sh`
-    1.  Ex. Choose AdaBoost via `bash AB.sh`
+    1.  Ex. Choose Naive Bayes via `bash NB.sh`
 6.  Follow the prompts.
 
 ---
