@@ -43,6 +43,8 @@ This code uses publicly-available data (found [here](https://github.com/beoutbre
     1.  Ex. Choose Naive Bayes via `bash NB.sh`
 6.  Follow the prompts.
 
+Disclamer: AdaBoost, Multilayer Perceptron, and Random Forest may require more time to run (> 1 minute).
+
 ---
 
 ## Acknowledgement
