@@ -75,8 +75,14 @@ esac
 if javac -d ../bin -cp ":../lib/weka.jar:../lib/isotonicRegression.jar:../lib/commons-math3-3.6.1/*" LR.java
 then
 	cd ../bin
-	java -cp ":../lib/weka.jar:../lib/isotonicRegression.jar:../lib/commons-math3-3.6.1/*" LR -t ../data/"$size$temporal".csv -c first -x 10 -s 1 -l "$size"
+	if java -cp ":../lib/weka.jar" TestDataLoading 2>&1 | grep -q 'InaccessibleObjectException'
+	then
+		java --add-opens java.base/java.lang=ALL-UNNAMED -cp ":../lib/weka.jar:../lib/isotonicRegression.jar:../lib/commons-math3-3.6.1/*" LR -t ../data/"$size$temporal".csv -c first -x 10 -s 1 -l "$size"
+	else
+		java -cp ":../lib/weka.jar:../lib/isotonicRegression.jar:../lib/commons-math3-3.6.1/*" LR -t ../data/"$size$temporal".csv -c first -x 10 -s 1 -l "$size"
+	fi
 	cd ../src
 else
+	echo "Failed for some reason. Exiting..."
 	exit
 fi
