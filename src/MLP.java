@@ -303,7 +303,7 @@ public class MLP {
 
 	private static void printHLStatistic(double[] hlHStatistic, String classifier) {
 		if (classifier.equals("isotonic regression")) {
-			System.out.println("p-value:\t\t" + String.format("%.6f", hlHStatistic[1]));
+			System.out.println("p-value:\t\t" + String.format("%.3f", hlHStatistic[1]));
 		}
 	}
 
@@ -424,7 +424,7 @@ public class MLP {
 
 			ThresholdCurve tc = new ThresholdCurve();
 			Instances resultAfterCalibration = tc.getCurve(predictionsArr2);
-			double AUCAfterCalibration = Double.parseDouble(Utils.doubleToString(tc.getROCArea(resultAfterCalibration), 4));
+			double AUCAfterCalibration = Double.parseDouble(Utils.doubleToString(tc.getROCArea(resultAfterCalibration), 3));
 			AUCResultsAfterCalibration[i] = AUCAfterCalibration;
 
 			System.out.println("AUC after calibration:\t" + AUCAfterCalibration);
