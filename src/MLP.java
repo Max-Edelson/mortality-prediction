@@ -457,8 +457,8 @@ public class MLP {
 
 		double testAUC = Double.parseDouble(Utils.doubleToString(tc.getROCArea(result), 4));
 
-		System.out.println("Training took " + (durationTraining / 60000) + " minutes.");
-		System.out.println("Testing took " + (durationTesting / 60000) + " minutes.\n");
+		System.out.println("Training took " + (durationTraining / 1000) + " seconds.");
+		System.out.println("Testing took " + (durationTesting / 1000) + " seconds.\n");
 	}
 
 	private static Instances convertToNominal(Instances A) throws Exception {
@@ -536,10 +536,10 @@ public class MLP {
 		// -M : momentum
 		// -N : number of epochs
 		if (size.equals("sparse")) {
-			classifierObject.setOptions(Utils.splitOptions("-L 0.4 -M 0.5 -N 500"));
+			classifierObject.setOptions(Utils.splitOptions("-L 0.1 -M 0.1 -N 750"));
 			System.out.println("Set hyper-parameters to size sparse");
 		} else if (size.equals("dense")) {
-			classifierObject.setOptions(Utils.splitOptions("-L 0.2 -M 0.5 -N 500"));
+			classifierObject.setOptions(Utils.splitOptions("-L 0.1 -M 0.3 -N 500"));
 			System.out.println("Set hyper-parameters to size dense");
 		} else {
 			System.out.println("Invalid size entry");
