@@ -428,7 +428,7 @@ public class SVM {
 			double AUCAfterCalibration = Double.parseDouble(Utils.doubleToString(tc.getROCArea(resultAfterCalibration), 3));
 			AUCResultsAfterCalibration[i] = AUCAfterCalibration;
 
-			System.out.println("AUC after calibration:\t" + AUCAfterCalibration);
+			System.out.println("AUC after calibration:\t" + String.format("%.3f", AUCAfterCalibration));
 
 			int numBucketsForHLStatistic = 10;
 			isoHStatisticResults.add(hosmer_lemeshow_statistic(isotonicRegressionPredictionValues, "H", numBucketsForHLStatistic, prediction, "isotonic regression"));
