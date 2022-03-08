@@ -55,3 +55,8 @@ The author T-TK was funded by the U.S. National Institutes of Health (NIH) (R00H
 
 ## Contact
 Thank you for downloading and using our software. If you have any questions or suggestions, please contact Maxim Edelson (medelson@ucsd.edu), UCSD Computer Science and Engineering, University of California San Diego, La Jolla, USA.
+
+--- 
+
+## DOI
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6336231.svg)](https://doi.org/10.5281/zenodo.6336231)
