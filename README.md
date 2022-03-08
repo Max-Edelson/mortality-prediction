@@ -8,7 +8,7 @@ Maxim Edelson<sup>1</sup>, Tsung-Ting Kuo<sup>2</sup> <br>
 ---
 
 ## Introduction
-This code uses publicly-available data (found [here](https://github.com/beoutbreakprepared/nCoV2019)) to model patient mortality based on 55 features + 1 class.
+This code uses publicly-available data (found [here](https://github.com/beoutbreakprepared/nCoV2019)) to predict patient mortality based on 55 features.
 
 ---
 
