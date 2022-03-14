@@ -28,8 +28,8 @@ This code uses publicly-available data (found [here](https://github.com/beoutbre
 ## Instructions For First-Time Setup
 1. Clone the repository onto your local machine using one of the following methods:
    -  git using `git clone https://github.com/Max-Edelson/mortality-prediction/tree/v1.0`
-   - wget using `wget https://github.com/Max-Edelson/mortality-prediction/archive/refs/heads/main.zip`
-   - Manually download the zip straight from the GitHub repository using [this link](https://github.com/Max-Edelson/mortality-prediction). 
+   - wget using `wget https://github.com/Max-Edelson/mortality-prediction/archive/refs/tags/v1.0.zip`
+   - Manually download the zip straight from the GitHub repository using [this link](https://github.com/Max-Edelson/mortality-prediction/tree/v1.0). 
 2. Run `bash setup.sh` to download all the required dependencies.
 3. In a shell, from the `/mortality-prediction` directory, navigate into the `/src` directory.
    - `cd src`
